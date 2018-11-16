@@ -43,7 +43,7 @@ exp=exp/rawcnn_$arch   ## Output directory.
 init="$2"   ## Optional CNN directory for initialisation.
 
 [[ -z $arch ]] && echo "Provide model architecture as argument" && exit 1
-[[ -z $init ]] || initCNN=$init/cnn.h5
+[[ ! -z $init ]] && initCNN=$init/cnn.h5 && initBaseName=$(basename $init)
 
 ## We already have dev set. So use it to cross-validate, and the entire training set to train.
 [ -d ${train}_tr95 ] || ln -s train_raw ${train}_tr95
@@ -69,7 +69,7 @@ copy-tree $gmm/tree $exp/tree
 python3 steps_kt/compute_priors.py $exp ${gmm}_ali_tr95 ${gmm}_ali_cv05
 
 ## Train
-[ -f $exp/cnn.h5 ] || $python_cmd logs/rawcnn_${arch}_$(basename $init)_1.log \
+[ -f $exp/cnn.h5 ] || $python_cmd logs/rawcnn_${arch}_${initBaseName}_1.log \
     python3 steps_kt/train_rawcnn.py \
     ${train}_cv05 ${gmm}_ali_cv05 ${train}_tr95 ${gmm}_ali_tr95 $gmm $arch $exp $initCNN
 

@@ -40,6 +40,8 @@ arch="$1"   ## Architecture: see steps_kt/model_architecture.py for valid option
             ## E.g. sep1D, sep2D.
 exp=exp/rawcnn_mono_$arch   ## Output directory.
 
+[[ -z $arch ]] && echo "Provide model architecture as argument" && exit 1
+
 ## We already have dev set. So use it to cross-validate, and the entire training set to train.
 [ -d ${train}_tr95 ] || ln -s train_raw ${train}_tr95
 [ -d ${trainmfcc}_tr95 ] || ln -s train ${trainmfcc}_tr95
@@ -83,7 +85,7 @@ for i in 2 3; do
     mv $exp/cnn.h5 $exp/cnn.${i}.h5
 
     ## Train
-    $python_cmd logs/run_rawcnn_mono_${arch}_${i}.log python3 steps_kt/train_rawcnn.py \
+    $python_cmd logs/rawcnn_mono_${arch}_${i}.log python3 steps_kt/train_rawcnn.py \
         ${train}_cv05 $exp/align_cv05 ${train}_tr95 $exp/align_tr95 $gmm $arch $exp
 done
 ln -s $exp/cnn.h5 $exp/cnn.final.h5
