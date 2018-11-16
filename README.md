@@ -42,6 +42,16 @@ with inputs from Kaldi directories.
 4. Extract raw features using extract.sh.
 
 5. Configure and run run\_\*.sh.
+   run\_rawcnn.sh trains triphone models. Provide model architecture
+   as an argument. See steps\_kt/model\_architecture.py for valid
+   options. Optionally, provide a CNN directory to initialise the
+   model weights from. The model architecture is expected to be the
+   same, except the output layer. This feature is useful to initialise
+   a triphone CNN from a monophone CNN.
+   run\_rawcnn\_mono.sh trains monophone models. Model architecture
+   is its only argument. After training a CNN, it computes forced
+   alignments and re-trains them. This expectation-maximisation is
+   performed for two iterations to get a better modelling.
 
 ## Code Components
 
