@@ -13,7 +13,7 @@ index 2af9da2ec..ee390cc91 100644
  
 diff --git a/src/feat/feature-raw.cc b/src/feat/feature-raw.cc
 new file mode 100644
-index 000000000..35188d5be
+index 000000000..4a8c59043
 --- /dev/null
 +++ b/src/feat/feature-raw.cc
 @@ -0,0 +1,60 @@
@@ -21,7 +21,7 @@ index 000000000..35188d5be
 +
 +// Copyright 2009-2012  Karel Vesely
 +// Copyright 2012  Navdeep Jaitly
-+// Modified: Pavan
++// Copyright 2018 Idiap Research Institute (author: S. Pavankumar Dubagunta)
 +
 +// See ../../COPYING for clarification regarding multiple authors
 +//
@@ -79,7 +79,7 @@ index 000000000..35188d5be
 +}  // namespace kaldi
 diff --git a/src/feat/feature-raw.h b/src/feat/feature-raw.h
 new file mode 100644
-index 000000000..5a5d5c28c
+index 000000000..6464f59f3
 --- /dev/null
 +++ b/src/feat/feature-raw.h
 @@ -0,0 +1,114 @@
@@ -87,7 +87,7 @@ index 000000000..5a5d5c28c
 +
 +// Copyright 2009-2012  Karel Vesely
 +// Copyright 2012  Navdeep Jaitly
-+// Modified: Pavan
++// Copyright 2018 Idiap Research Institute (author: S. Pavankumar Dubagunta)
 +
 +// See ../../COPYING for clarification regarding multiple authors
 +//
@@ -212,14 +212,14 @@ index 8e72d0f74..6514209b3 100644
             feat-to-len fmpe-acc-stats fmpe-apply-transform fmpe-est \
 diff --git a/src/featbin/compute-raw-feats.cc b/src/featbin/compute-raw-feats.cc
 new file mode 100644
-index 000000000..212b6ca1a
+index 000000000..99e11e20f
 --- /dev/null
 +++ b/src/featbin/compute-raw-feats.cc
 @@ -0,0 +1,165 @@
 +// featbin/compute-raw-feats.cc
 +
 +// Copyright 2009-2011  Microsoft Corporation
-+// Modified: Pavan
++// Copyright 2018 Idiap Research Institute (author: S. Pavankumar Dubagunta)
 +
 +// See ../../COPYING for clarification regarding multiple authors
 +//
