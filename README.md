@@ -86,7 +86,7 @@ is performed for a total of 18 times.
 
 Idiap Research Institute
 
-Authors: S. Pavankumar Dubagunta and Vinayak Abrol
+Authors: S. Pavankumar Dubagunta, Vinayak Abrol and Mathew Magimai-Doss.
 
 ## License
 
